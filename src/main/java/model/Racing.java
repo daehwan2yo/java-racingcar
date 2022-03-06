@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import utils.RandomProvider;
@@ -14,10 +15,28 @@ public class Racing {
 	}
 	
 	public void playOnce() {
-	
+		cars.getAll()
+			.stream()
+			.forEach(car -> {
+				if (randomProvider.extract() >= 4) {
+					car.move();
+				}
+			});
 	}
 	
 	public List<Car> getWinner() {
-		return null;
+		List<Car> winners = new ArrayList<>();
+		
+		cars.getAll()
+			.stream()
+			.sorted()
+			.forEach(car -> {
+				if (car.getDistance() == cars.getFirst()
+											 .getDistance()) {
+					winners.add(car);
+				}
+			});
+		
+		return winners;
 	}
 }

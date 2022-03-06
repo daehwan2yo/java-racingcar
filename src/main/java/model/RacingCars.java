@@ -24,4 +24,11 @@ public class RacingCars implements Cars {
 	public List<Car> getAll() {
 		return carList;
 	}
+	
+	@Override
+	public Car getFirst() {
+		return carList.stream()
+					  .max((c1, c2) -> c1.getDistance() - c2.getDistance())
+					  .get();
+	}
 }

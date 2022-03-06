@@ -27,6 +27,7 @@ public class RacingTest {
 		cars.save(pobi);
 		cars.save(gye);
 		cars.save(hello);
+		RandomProvider.TestRandomProvider.count = 0;
 		
 		racing = new Racing(cars, new RandomProvider.TestRandomProvider());
 	}
@@ -38,7 +39,7 @@ public class RacingTest {
 		
 		// then
 		assertThat(cars.getAll()
-					   .get(0)
+					   .get(1)
 					   .getDistance()).isEqualTo(1);
 	}
 	

@@ -1,6 +1,6 @@
 package model;
 
-public class RacingCar implements Car {
+public class RacingCar implements Car, Comparable<RacingCar> {
 	private final String name;
 	private int distance;
 	
@@ -25,5 +25,15 @@ public class RacingCar implements Car {
 	@Override
 	public int getDistance() {
 		return distance;
+	}
+	
+	@Override
+	public int compareTo(RacingCar target) {
+		return target.distance - this.distance;
+	}
+	
+	@Override
+	public String toString() {
+		return name;
 	}
 }

@@ -4,7 +4,7 @@ public interface RandomProvider {
 	int extract();
 	
 	class TestRandomProvider implements RandomProvider {
-		private static int count;
+		public static int count;
 		private static int[] numbers = {3, 5, 2};
 		
 		@Override

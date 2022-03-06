@@ -8,4 +8,6 @@ public interface Cars {
 	int size();
 	
 	List<Car> getAll();
+	
+	Car getFirst();
 }
