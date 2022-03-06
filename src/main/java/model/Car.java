@@ -5,5 +5,5 @@ public interface Car {
 	
 	void move();
 	
-	boolean getDistance();
+	int getDistance();
 }

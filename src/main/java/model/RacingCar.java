@@ -2,6 +2,7 @@ package model;
 
 public class RacingCar implements Car {
 	private final String name;
+	private int distance;
 	
 	private RacingCar(String carName) {
 		this.name = carName;
@@ -13,16 +14,16 @@ public class RacingCar implements Car {
 	
 	@Override
 	public boolean isName(String carName) {
-		return false;
+		return name.equals(carName);
 	}
 	
 	@Override
 	public void move() {
-	
+		distance++;
 	}
 	
 	@Override
-	public boolean getDistance() {
-		return false;
+	public int getDistance() {
+		return distance;
 	}
 }
