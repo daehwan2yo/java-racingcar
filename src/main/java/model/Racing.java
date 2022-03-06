@@ -29,7 +29,7 @@ public class Racing {
 		
 		cars.getAll()
 			.stream()
-			.sorted()
+			.sorted((c1, c2) -> c2.getDistance() - c1.getDistance())
 			.forEach(car -> {
 				if (car.getDistance() == cars.getFirst()
 											 .getDistance()) {

@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCars implements Cars {
 	private final List<Car> carList;
@@ -28,7 +29,8 @@ public class RacingCars implements Cars {
 	@Override
 	public Car getFirst() {
 		return carList.stream()
-					  .max((c1, c2) -> c1.getDistance() - c2.getDistance())
-					  .get();
+					  .sorted((c1, c2) -> c2.getDistance() - c1.getDistance())
+					  .collect(Collectors.toList())
+					  .get(0);
 	}
 }
