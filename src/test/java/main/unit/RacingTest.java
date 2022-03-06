@@ -14,17 +14,21 @@ import utils.RandomProvider;
 public class RacingTest {
 	Racing racing;
 	Cars cars;
+	RacingCar pobi;
+	RacingCar gye;
+	RacingCar hello;
 	
 	@BeforeEach
 	void init() {
 		cars = new RacingCars();
-		cars.save(RacingCar.from("pobi"));
-		cars.save(RacingCar.from("gye"));
-		cars.save(RacingCar.from("hello"));
+		pobi = RacingCar.from("pobi");
+		gye = RacingCar.from("gye");
+		hello = RacingCar.from("hello");
+		cars.save(pobi);
+		cars.save(gye);
+		cars.save(hello);
 		
-		racing = new Racing(cars, new RandomProvider() {
-		
-		});
+		racing = new Racing(cars, new RandomProvider.TestRandomProvider());
 	}
 	
 	@Test
@@ -44,6 +48,6 @@ public class RacingTest {
 		racing.playOnce();
 		
 		// then
-		assertThat(racing.getWinner()).isEqualTo("gye");
+		assertThat(racing.getWinner()).containsExactly(gye);
 	}
 }
